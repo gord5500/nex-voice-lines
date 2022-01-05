@@ -31,12 +31,9 @@ public class NexVoicePlugin extends Plugin
 	@Subscribe
 	public void onGameTick(GameTick event) {
 
-		nex = client.getLocalPlayer();
-
 		if (nex != null && nex.getOverheadText() != null) {
 
 			String text = nex.getOverheadText();
-			System.out.println("Overhead -> " + text);
 			Sound line = null;
 			if (text != null && !text.equals(lastText)) {
 
@@ -117,7 +114,6 @@ public class NexVoicePlugin extends Plugin
 
 				if (line != null) {
 
-					System.out.println("Playing sound " + line.toString());
 					Sound finalLine = line;
 					new Thread(() -> {
 
