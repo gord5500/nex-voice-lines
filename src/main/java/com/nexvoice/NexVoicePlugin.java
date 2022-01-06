@@ -25,8 +25,10 @@ public class NexVoicePlugin extends Plugin
 	@Inject
 	private Client client;
 
-	@Inject
-	private ClipLoader clipLoader;
+	@Override
+	public void startUp() {
+
+	}
 
 	@Subscribe
 	public void onGameTick(GameTick event) {
@@ -115,10 +117,7 @@ public class NexVoicePlugin extends Plugin
 				if (line != null) {
 
 					Sound finalLine = line;
-					new Thread(() -> {
-
-						clipLoader.playClip(finalLine);
-					}).start();
+					new AePlayWave(finalLine.getResourceName()).start();
 				}
 
 				lastText = text;
