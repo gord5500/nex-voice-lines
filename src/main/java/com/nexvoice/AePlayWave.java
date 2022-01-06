@@ -37,7 +37,7 @@ public class AePlayWave extends Thread {
 
         AudioInputStream audioInputStream = null;
         try {
-            audioInputStream = AudioSystem.getAudioInputStream(ClipLoader.class.getResourceAsStream("/" + filename));
+            audioInputStream = AudioSystem.getAudioInputStream(AePlayWave.class.getResourceAsStream("/" + filename));
         } catch (UnsupportedAudioFileException e1) {
             e1.printStackTrace();
             return;
